@@ -67,7 +67,7 @@ Here's a blank template to get started:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-## Project setup
+### Project setup
 ```
 npm install
 ```

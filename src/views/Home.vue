@@ -1,18 +1,48 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="home container">
+    <div class="row">
+      <div class="col">
+        <h1>{{ $t("welcomeMessage") }}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <CommuteStatusButton
+          :on-click="loginButtonAction"
+          :button-text="$t('loginButton')"
+          :button-size="'lg'"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <CommuteStatusButton
+          :on-click="signupButtonAction"
+          :button-text="$t('signupButton')"
+          :button-style="'primary'"
+          :button-size="'lg'"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import CommuteStatusButton from "@/components/CommuteStatusButton.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    CommuteStatusButton
+  },
+  methods: {
+    loginButtonAction() {
+      alert("LOGIN");
+    },
+
+    signupButtonAction() {
+      alert("signup");
+    }
   }
 };
 </script>

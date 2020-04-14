@@ -1,3 +1,5 @@
 {
-  "message": "hello i18n !!"
+  "loginButton": "Login",
+  "signupButton": "Signup",
+  "welcomeMessage": "Welcome to Commute Status!"
 }

@@ -1,5 +1,6 @@
 {
-  "loginButton": "Login",
-  "signupButton": "Signup",
+  "loginButton": "Log in",
+  "logoutButton": "Log out",
+  "signupButton": "Sign up",
   "welcomeMessage": "Welcome to Commute Status!"
 }

@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import { authGuard } from "../auth/authGuard";
 
 Vue.use(VueRouter);
 
@@ -11,22 +12,22 @@ const routes = [
     component: Home
   },
   {
+    path: "/commutestatus",
+    name: "CommuteStatus",
+    beforeEnter: authGuard,
+    component: () =>
+      import(/* webpackChunkName: "settings" */ "../views/CommuteStatus")
+  },
+  {
     path: "/settings",
     name: "Settings",
+    beforeEnter: authGuard,
     component: () =>
       import(/* webpackChunkName: "settings" */ "../views/Settings.vue")
   },
   {
-    path: "/commutestatus",
-    name: "commutestatus",
-    component: () =>
-      import(
-        /* webpackChunkName: "commutestatus" */ "../views/CommuteStatus.vue"
-      )
-  },
-  {
     path: "/signup",
-    name: "signup",
+    name: "SignUp",
     component: () =>
       import(/* webpackChunkName: "signup" */ "../views/SignUp.vue")
   }

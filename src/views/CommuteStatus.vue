@@ -1,9 +1,29 @@
 <template>
   <div class="commutestatus">
-    <div id="nav">
-      <router-link to="/commutestatus">Home</router-link> |
-      <router-link to="/settings">Settings</router-link>
+    <div class="row">
+      <div class="col">
+        <Nav />
+      </div>
     </div>
-    <h1>This is an commutestatus page</h1>
+    <div class="row">
+      <div class="col">
+        <Status />
+      </div>
+    </div>
   </div>
 </template>
+
+<script>
+import Nav from "../components/Nav";
+import Status from "../components/Status";
+
+export default {
+  name: "CommuteStatus",
+  components: {
+    Nav,
+    Status
+  }
+};
+</script>
+
+<style scoped lang="scss"></style>

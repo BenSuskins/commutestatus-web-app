@@ -1,47 +1,26 @@
 <template>
   <div class="home container">
-    <div class="row">
-      <div class="col">
-        <h1>{{ $t("welcomeMessage") }}</h1>
-      </div>
+    <!-- If not authenticated show log in / sign up-->
+    <div v-if="!$auth.isAuthenticated">
+      <Welcome />
     </div>
-    <div class="row">
-      <div class="col">
-        <CommuteStatusButton
-          :on-click="loginButtonAction"
-          :button-text="$t('loginButton')"
-          :button-size="'lg'"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <CommuteStatusButton
-          :on-click="signupButtonAction"
-          :button-text="$t('signupButton')"
-          :button-style="'primary'"
-          :button-size="'lg'"
-        />
-      </div>
+    <div v-if="$auth.isAuthenticated">
+      <b-button @click="clickEvent">Click me</b-button>
     </div>
   </div>
 </template>
 
 <script>
-import CommuteStatusButton from "@/components/CommuteStatusButton.vue";
+import Welcome from "../components/Welcome";
 
 export default {
   name: "Home",
   components: {
-    CommuteStatusButton
+    Welcome
   },
   methods: {
-    loginButtonAction() {
-      alert("LOGIN");
-    },
-
-    signupButtonAction() {
-      alert("signup");
+    clickEvent() {
+      this.$router.push("commutestatus");
     }
   }
 };

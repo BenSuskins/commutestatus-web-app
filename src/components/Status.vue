@@ -1,8 +1,18 @@
 <template>
   <div>
-    <div class="row">
+    <div v-if="this.$store.getters.isLoading" class="row">
       <div class="col">
-        <h1>This is the status page</h1>
+        <b-spinner label="Spinning"></b-spinner>
+      </div>
+    </div>
+    <div v-if="!this.$store.getters.isLoading" class="row">
+      <div class="col">
+        <h1>To Work</h1>
+      </div>
+    </div>
+    <div v-if="!this.$store.getters.isLoading" class="row">
+      <div class="col">
+        <h1>To Home</h1>
       </div>
     </div>
   </div>
@@ -11,6 +21,14 @@
 <script>
 export default {
   name: "Status",
+  created() {
+    this.getCommuteStatus();
+  },
+  methods: {
+    getCommuteStatus() {
+      this.$store.dispatch("fetchCommuteStatuses");
+    }
+  },
   components: {},
   props: {}
 };

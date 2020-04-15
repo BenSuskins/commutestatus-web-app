@@ -1,15 +1,7 @@
 <template>
-  <div class="commutestatus">
-    <div class="row">
-      <div class="col">
-        <Nav />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <Status />
-      </div>
-    </div>
+  <div class="commutestatus container">
+    <Nav />
+    <Status />
   </div>
 </template>
 

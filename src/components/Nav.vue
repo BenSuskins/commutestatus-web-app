@@ -1,7 +1,11 @@
 <template>
   <div id="nav">
-    <router-link to="/commutestatus">Home</router-link> |
-    <router-link to="/settings">Settings</router-link>
+    <div class="row">
+      <div class="col">
+        <router-link to="/commutestatus">Home</router-link> |
+        <router-link to="/settings">Settings</router-link>
+      </div>
+    </div>
   </div>
 </template>
 <script>

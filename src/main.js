@@ -23,7 +23,8 @@ Vue.use(Auth0Plugin, {
         ? appState.targetUrl
         : window.location.pathname
     );
-  }
+  },
+  audience: "https://commutestatusapi.suskins.co.uk/api"
 });
 
 new Vue({

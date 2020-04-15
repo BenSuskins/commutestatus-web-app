@@ -1,10 +1,6 @@
 <template>
   <div class="settings container">
-    <div class="row">
-      <div class="col">
-        <Nav />
-      </div>
-    </div>
+    <Nav />
     <div class="row">
       <div class="col">
         <h1>This is the settings page</h1>
@@ -16,7 +12,6 @@
           v-if="$auth.isAuthenticated"
           :on-click="logoutButtonAction"
           :button-text="$t('logoutButton')"
-          :button-size="'lg'"
         />
       </div>
     </div>

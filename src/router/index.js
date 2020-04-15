@@ -9,11 +9,14 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+    meta: { auth: false },
+    beforeEnter: authGuard
   },
   {
     path: "/commutestatus",
     name: "CommuteStatus",
+    meta: { auth: true },
     beforeEnter: authGuard,
     component: () =>
       import(/* webpackChunkName: "settings" */ "../views/CommuteStatus")
@@ -21,6 +24,7 @@ const routes = [
   {
     path: "/settings",
     name: "Settings",
+    meta: { auth: true },
     beforeEnter: authGuard,
     component: () =>
       import(/* webpackChunkName: "settings" */ "../views/Settings.vue")
@@ -28,6 +32,8 @@ const routes = [
   {
     path: "/signup",
     name: "SignUp",
+    meta: { auth: false },
+    beforeEnter: authGuard,
     component: () =>
       import(/* webpackChunkName: "signup" */ "../views/SignUp.vue")
   }

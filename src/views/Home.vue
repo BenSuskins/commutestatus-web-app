@@ -4,9 +4,6 @@
     <div v-if="!$auth.isAuthenticated">
       <Welcome />
     </div>
-    <div v-if="$auth.isAuthenticated">
-      <b-button @click="clickEvent">Click me</b-button>
-    </div>
   </div>
 </template>
 
@@ -15,12 +12,17 @@ import Welcome from "../components/Welcome";
 
 export default {
   name: "Home",
+  mounted() {
+    this.redirectIfLoggedIn();
+  },
   components: {
     Welcome
   },
   methods: {
-    clickEvent() {
-      this.$router.push("commutestatus");
+    redirectIfLoggedIn() {
+      if (!this.$auth.loading && this.$auth.isAuthenticated) {
+        this.$router.push("commutestatus");
+      }
     }
   }
 };

@@ -5,12 +5,20 @@ export const authGuard = (to, from, next) => {
 
   const fn = () => {
     // If the user is authenticated, continue with the route
-    if (authService.isAuthenticated) {
-      return next();
-    }
+    if (to.meta.auth) {
+      if (authService.isAuthenticated) {
+        return next();
+      }
 
-    // Otherwise, log in
-    authService.loginWithRedirect({ appState: { targetUrl: to.fullPath } });
+      // Otherwise, log in
+      authService.loginWithRedirect({ appState: { targetUrl: to.fullPath } });
+    } else {
+      if (to.name === "Home" && authService.isAuthenticated) {
+        next("/commutestatus");
+      } else {
+        return next();
+      }
+    }
   };
 
   // If loading has already finished, check our auth state using `fn()`

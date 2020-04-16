@@ -1,7 +1,9 @@
 // Define your variable overrides here
 $primary: #8700ff;
 $body-color: #c9c9c9;
-
+$on-time: #7cb342;
+$delayed: #fb8c00;
+$cancelled: #e53935;
 
 // Include Bootstrap and BootstrapVue SCSS files
 @import '~bootstrap/scss/bootstrap.scss';

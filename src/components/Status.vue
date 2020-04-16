@@ -6,7 +6,7 @@
       </div>
     </div>
     <div v-if="!this.$store.getters.isLoading">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center mb-5">
         <div v-if="this.$store.getters.getToWork.length !== 0" class="col">
           <h1>
             {{
@@ -17,7 +17,7 @@
               })
             }}
           </h1>
-          <h2>
+          <h2 class="toWorkStatus">
             {{
               this.$store.getters.getToWork[this.index].estimatedTimeOfDepature
             }}
@@ -49,7 +49,7 @@
           </h1>
         </div>
       </div>
-      <div class="row justify-content-center">
+      <div class="row justify-content-center mt-5">
         <div v-if="this.$store.getters.getToHome.length !== 0" class="col">
           <h1>
             {{
@@ -60,7 +60,7 @@
               })
             }}
           </h1>
-          <h2>
+          <h2 class="toHomeStatus">
             {{
               this.$store.getters.getToHome[this.index].estimatedTimeOfDepature
             }}
@@ -127,4 +127,14 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@import "../styles/custom";
+
+.toHomeStatus {
+  color: $on-time;
+}
+
+.toWorkStatus {
+  color: $delayed;
+}
+</style>

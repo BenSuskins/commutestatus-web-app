@@ -44,7 +44,7 @@ export default {
       });
     },
     signupButtonAction() {
-      alert("signup");
+      alert("I need to start this js");
     }
   }
 };

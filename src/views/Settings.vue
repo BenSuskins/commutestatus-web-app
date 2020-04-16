@@ -6,7 +6,7 @@
         <h1
           v-html="
             $t('settings.header', {
-              user: this.$store.getters.getUser.firstName
+              user: firstName
             })
           "
         ></h1>
@@ -39,6 +39,11 @@ export default {
       this.$auth.logout({
         returnTo: window.location.origin
       });
+    }
+  },
+  computed: {
+    firstName() {
+      return this.$store.getters.getUser.firstName;
     }
   }
 };

@@ -9,7 +9,10 @@
     "platform": "Platform %{platform}",
     "nextButton": "Next",
     "none": "No trains to %{station}",
-    "unkown": "Unknown"
+    "unkown": "Unknown",
+    "on-time": "<h2 class=\"on-time\">On Time</h2>",
+    "delayed": "<h2 class=\"on-time\">%{time}</h2>",
+    "cancelled": "<h2 class=\"cancelled\">Cancelled</h2>"
   },
   "nav": {
     "home": "Home",

@@ -23,17 +23,14 @@ export default {
     },
     buttonStyle: {
       type: String,
-      required: false,
       default: "outline-primary"
     },
     buttonSize: {
       type: String,
-      required: false,
       default: "md"
     },
     buttonDisabled: {
       type: Boolean,
-      required: false,
       default: false
     }
   }

@@ -32,7 +32,7 @@ export default new Vuex.Store({
   },
   actions: {
     fetchCommuteStatuses(context) {
-      //Reset and set status to loading
+      //Reset State
       context.commit("SET_STATUS", "loading");
       context.commit("SET_TO_WORK", []);
       context.commit("SET_TO_HOME", []);
@@ -96,17 +96,11 @@ export default new Vuex.Store({
     hasErrored(state) {
       return state.status === "errored";
     },
-    getError(state) {
-      return state.error;
+    workStatuses(state) {
+      return state.toWork.length;
     },
-    getToWork(state) {
-      return state.toWork;
-    },
-    getToHome(state) {
-      return state.toHome;
-    },
-    getUser(state) {
-      return state.user;
+    homeStatuses(state) {
+      return state.toHome.length;
     }
   },
   modules: {}

@@ -7,10 +7,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    status: "",
+    status: "loading",
     toWork: [],
     toHome: [],
-    error: {}
+    error: {},
+    user: {}
   },
   mutations: {
     SET_STATUS(state, status) {
@@ -21,6 +22,9 @@ export default new Vuex.Store({
     },
     SET_TO_HOME(state, toHome) {
       state.toHome = toHome;
+    },
+    SET_USER(state, user) {
+      state.user = user;
     },
     SET_ERROR(state, error) {
       state.error = error;
@@ -57,6 +61,32 @@ export default new Vuex.Store({
             context.commit("SET_ERROR", error);
           });
       });
+    },
+    fetchUser(context) {
+      //Clear state
+      context.commit("SET_USER", {});
+
+      //Set access token
+      const authservice = getInstance();
+      authservice.getIdTokenClaims().then(claims => {
+        let options = {
+          headers: {
+            Authorization: "Bearer " + claims.__raw
+          }
+        };
+
+        //Make api call
+        axios
+          .get("http://localhost:8080/api/v1/secure/user", options)
+          .then(response => {
+            context.commit("SET_USER", response.data);
+          })
+          .catch(error => {
+            console.log(error);
+            context.commit("SET_STATUS", "errored");
+            context.commit("SET_ERROR", error);
+          });
+      });
     }
   },
   getters: {
@@ -74,6 +104,9 @@ export default new Vuex.Store({
     },
     getToHome(state) {
       return state.toHome;
+    },
+    getUser(state) {
+      return state.user;
     }
   },
   modules: {}

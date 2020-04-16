@@ -1,6 +1,22 @@
 {
-  "loginButton": "Log in",
-  "logoutButton": "Log out",
-  "signupButton": "Sign up",
-  "welcomeMessage": "Welcome to Commute Status!"
+  "welcome": {
+    "loginButton": "Log in",
+    "signupButton": "Sign up",
+    "welcomeMessage": "Welcome to Commute Status!"
+  },
+  "status": {
+    "to": "%{std} to %{station}",
+    "platform": "Platform %{platform}",
+    "nextButton": "Next",
+    "none": "No trains to %{station}",
+    "unkown": "Unknown"
+  },
+  "nav": {
+    "home": "Home",
+    "settings": "Settings"
+  },
+  "settings": {
+    "logoutButton": "Log out",
+    "header": "Hey %{user}!<br>Here you can update your preferences."
+  }
 }

@@ -2,8 +2,8 @@
   <div id="nav">
     <div class="row">
       <div class="col">
-        <router-link to="/commutestatus">Home</router-link> |
-        <router-link to="/settings">Settings</router-link>
+        <router-link to="/commutestatus">{{ $t("nav.home") }}</router-link> |
+        <router-link to="/settings">{{ $t("nav.settings") }}</router-link>
       </div>
     </div>
   </div>

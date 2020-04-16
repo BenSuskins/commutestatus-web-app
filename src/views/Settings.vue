@@ -3,7 +3,13 @@
     <Nav />
     <div class="row">
       <div class="col">
-        <h1>This is the settings page</h1>
+        <h1
+          v-html="
+            $t('settings.header', {
+              user: this.$store.getters.getUser.firstName
+            })
+          "
+        ></h1>
       </div>
     </div>
     <div class="row">
@@ -11,7 +17,7 @@
         <CommuteStatusButton
           v-if="$auth.isAuthenticated"
           :on-click="logoutButtonAction"
-          :button-text="$t('logoutButton')"
+          :button-text="$t('settings.logoutButton')"
         />
       </div>
     </div>

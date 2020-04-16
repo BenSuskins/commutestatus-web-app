@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <div class="col">
-        <h1>{{ $t("welcomeMessage") }}</h1>
+        <h1>{{ $t("welcome.welcomeMessage") }}</h1>
       </div>
     </div>
     <div class="row">
@@ -10,7 +10,7 @@
         <div v-if="!$auth.loading">
           <CommuteStatusButton
             :on-click="loginButtonAction"
-            :button-text="$t('loginButton')"
+            :button-text="$t('welcome.loginButton')"
             :button-size="'lg'"
           />
         </div>
@@ -20,7 +20,7 @@
       <div class="col">
         <CommuteStatusButton
           :on-click="signupButtonAction"
-          :button-text="$t('signupButton')"
+          :button-text="$t('welcome.signupButton')"
           :button-style="'primary'"
           :button-size="'lg'"
         />

@@ -34,11 +34,17 @@ export default {
     Nav,
     CommuteStatusButton
   },
+  created() {
+    this.getUser();
+  },
   methods: {
     logoutButtonAction() {
       this.$auth.logout({
         returnTo: window.location.origin
       });
+    },
+    getUser() {
+      this.$store.dispatch("fetchUser");
     }
   },
   computed: {

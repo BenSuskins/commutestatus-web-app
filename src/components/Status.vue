@@ -73,7 +73,7 @@ export default {
   },
   computed: {
     isLoading() {
-      return this.$store.getters.isLoading;
+      return this.$store.getters.isCommuteStatusLoading;
     },
     isCancelled() {
       return this.commuteStatus.isCancelled;

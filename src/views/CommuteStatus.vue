@@ -50,14 +50,11 @@ export default {
       }
     }
   },
-  mounted() {
+  created() {
     this.getCommuteStatus();
     this.getUser();
   },
   computed: {
-    hasErrored() {
-      return this.$store.getters.hasErrored;
-    },
     getNumberOfHomeStatuses() {
       return this.$store.getters.getNumberOfHomeStatuses;
     },
@@ -70,7 +67,7 @@ export default {
     getHomeStatuses() {
       return this.$store.getters.getToHome;
     },
-    ...mapState(["user", "toWork", "toHome"])
+    ...mapState(["user", "commutestatus"])
   }
 };
 </script>

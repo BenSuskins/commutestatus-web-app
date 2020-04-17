@@ -80,7 +80,7 @@ export default {
     },
     platform() {
       if (this.commuteStatus.platform === "") {
-        return "Unknown";
+        return this.$i18n.t("status.unknown");
       } else {
         return this.commuteStatus.platform;
       }

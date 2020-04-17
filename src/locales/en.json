@@ -9,7 +9,7 @@
     "platform": "Platform %{platform}",
     "nextButton": "Next",
     "none": "No trains to %{station}",
-    "unkown": "Unknown",
+    "unknown": "Unknown",
     "error": "An error occurred while retrieving the Commute Status, please try again."
   },
   "nav": {

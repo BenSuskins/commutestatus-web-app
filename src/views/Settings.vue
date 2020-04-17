@@ -6,7 +6,7 @@
         <h1
           v-html="
             $t('settings.header', {
-              user: firstName
+              user: user.user.firstName
             })
           "
         ></h1>
@@ -27,6 +27,7 @@
 <script>
 import Nav from "../components/Nav";
 import CommuteStatusButton from "../components/CommuteStatusButton";
+import { mapState } from "vuex";
 
 export default {
   name: "Settings",
@@ -48,9 +49,7 @@ export default {
     }
   },
   computed: {
-    firstName() {
-      return this.$store.getters.getUser.firstName;
-    }
+    ...mapState(["user"])
   }
 };
 </script>

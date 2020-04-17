@@ -17,7 +17,6 @@
 <script>
 import Nav from "../components/Nav";
 import Status from "../components/Status";
-import { mapState } from "vuex";
 
 export default {
   name: "CommuteStatus",
@@ -66,8 +65,7 @@ export default {
     },
     getHomeStatuses() {
       return this.$store.getters.getToHome;
-    },
-    ...mapState(["user", "commutestatus"])
+    }
   }
 };
 </script>

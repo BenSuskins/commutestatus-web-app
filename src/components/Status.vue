@@ -28,7 +28,7 @@
           <h2>
             {{
               $t("status.platform", {
-                platform: platformString
+                platform: platform
               })
             }}
           </h2>
@@ -43,29 +43,14 @@ export default {
   name: "Status",
   data() {
     return {
-      index: 0,
       isOnTime: false,
       isDelayed: false
     };
   },
   props: {
-    scheduledTimeOfDeparture: {
-      type: String
-    },
-    to: {
-      type: String
-    },
-    estimatedTimeOfDeparture: {
-      type: String
-    },
-    platform: {
-      type: String
-    },
-    isCancelled: {
-      type: Boolean
-    },
-    isLoading: {
-      type: Boolean
+    commuteStatus: {
+      type: Object,
+      required: true
     },
     numberOfStatuses: {
       type: Number,
@@ -74,25 +59,40 @@ export default {
   },
   methods: {
     setEtdStyle() {
-      if (this.estimatedTimeOfDeparture === "On time") {
+      if (this.commuteStatus.estimatedTimeOfDeparture === "On time") {
         this.isOnTime = true;
-      } else if (this.isCancelled) {
+      } else if (this.commuteStatus.isCancelled) {
         this.isCancelled = true;
       } else {
         this.isDelayed = true;
       }
     }
   },
-  mounted() {
+  updated() {
     this.setEtdStyle();
   },
   computed: {
-    platformString() {
-      if (this.platform === "") {
+    isLoading() {
+      return this.$store.getters.isLoading;
+    },
+    isCancelled() {
+      return this.commuteStatus.isCancelled;
+    },
+    platform() {
+      if (this.commuteStatus.platform === "") {
         return "Unknown";
       } else {
-        return this.platform;
+        return this.commuteStatus.platform;
       }
+    },
+    estimatedTimeOfDeparture() {
+      return this.commuteStatus.estimatedTimeOfDeparture;
+    },
+    scheduledTimeOfDeparture() {
+      return this.commuteStatus.scheduledTimeOfDeparture;
+    },
+    to() {
+      return this.commuteStatus.to;
     }
   },
   components: {}

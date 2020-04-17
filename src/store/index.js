@@ -96,11 +96,20 @@ export default new Vuex.Store({
     hasErrored(state) {
       return state.status === "errored";
     },
-    workStatuses(state) {
+    getNumberOfWorkStatuses(state) {
       return state.toWork.length;
     },
-    homeStatuses(state) {
+    getNumberOfHomeStatuses(state) {
       return state.toHome.length;
+    },
+    getToHome: state => index => {
+      return state.toHome[index];
+    },
+    getToWork: state => index => {
+      return state.toWork[index];
+    },
+    getUser(state) {
+      return state.user;
     }
   },
   modules: {}

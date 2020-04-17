@@ -3,23 +3,13 @@
     <Nav />
     <Status
       class="toWork"
-      :to="toWork[workIndex].to"
-      :estimated-time-of-departure="toWork[workIndex].estimatedTimeOfDeparture"
-      :platform="toWork[workIndex].platform"
-      :scheduled-time-of-departure="toWork[workIndex].scheduledTimeOfDeparture"
-      :is-cancelled="toWork[workIndex].isCancelled"
-      :is-loading="isLoading"
-      :number-of-statuses="workStatuses"
+      :commute-status="getWorkStatuses(workIndex)"
+      :number-of-statuses="getNumberOfWorkStatuses"
     />
     <Status
       class="toHome"
-      :to="toHome[homeIndex].to"
-      :estimated-time-of-departure="toHome[homeIndex].estimatedTimeOfDeparture"
-      :platform="toHome[homeIndex].platform"
-      :scheduled-time-of-departure="toHome[homeIndex].scheduledTimeOfDeparture"
-      :is-cancelled="toHome[homeIndex].isCancelled"
-      :is-loading="isLoading"
-      :number-of-statuses="homeStatuses"
+      :commute-status="getHomeStatuses(homeIndex)"
+      :number-of-statuses="getNumberOfHomeStatuses"
     />
   </div>
 </template>
@@ -50,12 +40,12 @@ export default {
     },
     onClickAction() {
       this.homeIndex++;
-      if (this.homeIndex >= this.homeStatuses) {
+      if (this.homeIndex >= this.getNumberOfHomeStatuses) {
         this.homeIndex = 0;
       }
 
       this.workIndex++;
-      if (this.workIndex >= this.workStatuses) {
+      if (this.workIndex >= this.getNumberOfWorkStatuses) {
         this.workIndex = 0;
       }
     }
@@ -68,14 +58,17 @@ export default {
     hasErrored() {
       return this.$store.getters.hasErrored;
     },
-    isLoading() {
-      return this.$store.getters.isLoading;
+    getNumberOfHomeStatuses() {
+      return this.$store.getters.getNumberOfHomeStatuses;
     },
-    homeStatuses() {
-      return this.$store.getters.homeStatuses;
+    getNumberOfWorkStatuses() {
+      return this.$store.getters.getNumberOfWorkStatuses;
     },
-    workStatuses() {
-      return this.$store.getters.workStatuses;
+    getWorkStatuses() {
+      return this.$store.getters.getToWork;
+    },
+    getHomeStatuses() {
+      return this.$store.getters.getToHome;
     },
     ...mapState(["user", "toWork", "toHome"])
   }

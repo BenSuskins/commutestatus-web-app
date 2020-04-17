@@ -34,6 +34,7 @@ export const actions = {
         console.log(error);
         commit("SET_STATUS", "errored");
         commit("SET_ERROR", error);
+        throw error;
       });
   }
 };

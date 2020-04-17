@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import * as user from "./modules/user.js";
-import * as commutestatus from "./modules/commutestatus.js";
+import * as user from "./modules/User.js";
+import * as commutestatus from "./modules/CommuteStatus.js";
 
 Vue.use(Vuex);
 

@@ -10,9 +10,7 @@
     "nextButton": "Next",
     "none": "No trains to %{station}",
     "unkown": "Unknown",
-    "on-time": "<h2 class=\"on-time\">On Time</h2>",
-    "delayed": "<h2 class=\"on-time\">%{time}</h2>",
-    "cancelled": "<h2 class=\"cancelled\">Cancelled</h2>"
+    "error": "An error occurred while retrieving the Commute Status, please try again."
   },
   "nav": {
     "home": "Home",
@@ -20,6 +18,7 @@
   },
   "settings": {
     "logoutButton": "Log out",
-    "header": "Hey %{user}!<br>Here you can update your preferences."
+    "header": "Hey %{user}!<br>Here you can update your preferences.",
+    "error": "An error occurred while retrieving the user, please try again."
   }
 }

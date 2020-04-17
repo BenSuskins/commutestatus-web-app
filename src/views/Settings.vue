@@ -3,22 +3,31 @@
     <Nav />
     <div class="row">
       <div class="col">
-        <h1
-          v-html="
-            $t('settings.header', {
-              user: user.user.firstName
-            })
-          "
-        ></h1>
+        <b-alert :show="this.hasUserErrored" variant="danger">{{
+          $t("settings.error")
+        }}</b-alert>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        <CommuteStatusButton
-          v-if="$auth.isAuthenticated"
-          :on-click="logoutButtonAction"
-          :button-text="$t('settings.logoutButton')"
-        />
+    <div v-if="!this.hasUserErrored">
+      <div class="row">
+        <div class="col">
+          <h1
+            v-html="
+              $t('settings.header', {
+                user: user.user.firstName
+              })
+            "
+          ></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <CommuteStatusButton
+            v-if="$auth.isAuthenticated"
+            :on-click="logoutButtonAction"
+            :button-text="$t('settings.logoutButton')"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -49,6 +58,9 @@ export default {
     }
   },
   computed: {
+    hasUserErrored() {
+      return this.$store.getters.hasUserErrored;
+    },
     ...mapState(["user"])
   }
 };

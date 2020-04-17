@@ -1,12 +1,21 @@
 <template>
   <div v-on:click="onClickAction" class="commutestatus container">
     <Nav />
+    <div class="row">
+      <div class="col">
+        <b-alert :show="this.hasCommuteStatusErrored" variant="danger">{{
+          $t("status.error")
+        }}</b-alert>
+      </div>
+    </div>
     <Status
+      v-if="!this.hasCommuteStatusErrored"
       class="toWork"
       :commute-status="getWorkStatuses(workIndex)"
       :number-of-statuses="getNumberOfWorkStatuses"
     />
     <Status
+      v-if="!this.hasCommuteStatusErrored"
       class="toHome"
       :commute-status="getHomeStatuses(homeIndex)"
       :number-of-statuses="getNumberOfHomeStatuses"
@@ -65,6 +74,9 @@ export default {
     },
     getHomeStatuses() {
       return this.$store.getters.getToHome;
+    },
+    hasCommuteStatusErrored() {
+      return this.$store.getters.hasCommuteStatusErrored;
     }
   }
 };

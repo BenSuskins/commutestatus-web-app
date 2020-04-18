@@ -5,9 +5,9 @@
         <b-spinner label="Spinning"></b-spinner>
       </div>
     </div>
-    <div v-if="!isLoading">
+    <div v-if="!isLoading && this.commuteStatus">
       <div class="row mb-5">
-        <div v-if="numberOfStatuses > 0" class="col">
+        <div class="col">
           <h1>
             {{
               $t("status.to", {
@@ -35,6 +35,19 @@
         </div>
       </div>
     </div>
+    <div v-if="!isLoading && !this.commuteStatus">
+      <div class="row mb-5">
+        <div class="col">
+          <h1>
+            {{
+              $t("status.none", {
+                station: to
+              })
+            }}
+          </h1>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -49,11 +62,10 @@ export default {
   },
   props: {
     commuteStatus: {
-      type: Object,
-      required: true
+      type: Object
     },
-    numberOfStatuses: {
-      type: Number,
+    to: {
+      type: String,
       required: true
     }
   },
@@ -90,9 +102,6 @@ export default {
     },
     scheduledTimeOfDeparture() {
       return this.commuteStatus.scheduledTimeOfDeparture;
-    },
-    to() {
-      return this.commuteStatus.to;
     }
   },
   components: {}

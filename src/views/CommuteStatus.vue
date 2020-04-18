@@ -10,15 +10,13 @@
     </div>
     <Status
       v-if="!this.hasCommuteStatusErrored"
-      class="toWork"
-      :commute-status="getWorkStatuses(workIndex)"
-      :number-of-statuses="getNumberOfWorkStatuses"
+      :commute-status="workStatuses(workIndex)"
+      :to="user.user.workStation"
     />
     <Status
       v-if="!this.hasCommuteStatusErrored"
-      class="toHome"
-      :commute-status="getHomeStatuses(homeIndex)"
-      :number-of-statuses="getNumberOfHomeStatuses"
+      :commute-status="homeStatuses(homeIndex)"
+      :to="user.user.homeStation"
     />
   </div>
 </template>
@@ -26,6 +24,7 @@
 <script>
 import Nav from "../components/Nav";
 import Status from "../components/Status";
+import { mapState } from "vuex";
 
 export default {
   name: "CommuteStatus",
@@ -46,6 +45,12 @@ export default {
     getUser() {
       this.$store.dispatch("fetchUser");
     },
+    getNumberOfHomeStatuses() {
+      return this.$store.getters.getNumberOfHomeStatuses;
+    },
+    getNumberOfWorkStatuses() {
+      return this.$store.getters.getNumberOfWorkStatuses;
+    },
     onClickAction() {
       this.homeIndex++;
       if (this.homeIndex >= this.getNumberOfHomeStatuses) {
@@ -63,21 +68,16 @@ export default {
     this.getUser();
   },
   computed: {
-    getNumberOfHomeStatuses() {
-      return this.$store.getters.getNumberOfHomeStatuses;
-    },
-    getNumberOfWorkStatuses() {
-      return this.$store.getters.getNumberOfWorkStatuses;
-    },
-    getWorkStatuses() {
+    workStatuses() {
       return this.$store.getters.getToWork;
     },
-    getHomeStatuses() {
+    homeStatuses() {
       return this.$store.getters.getToHome;
     },
     hasCommuteStatusErrored() {
       return this.$store.getters.hasCommuteStatusErrored;
-    }
+    },
+    ...mapState(["user"])
   }
 };
 </script>

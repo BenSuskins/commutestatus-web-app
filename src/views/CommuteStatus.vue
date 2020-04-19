@@ -24,7 +24,7 @@
 <script>
 import Nav from "../components/Nav";
 import Status from "../components/Status";
-import { mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 
 export default {
   name: "CommuteStatus",
@@ -77,7 +77,12 @@ export default {
     hasCommuteStatusErrored() {
       return this.$store.getters.hasCommuteStatusErrored;
     },
-    ...mapState(["user"])
+    ...mapState(["user"]),
+    ...mapGetters([
+      "getNumberOfWorkStatuses",
+      "getNumberOfHomeStatuses"
+      // ...
+    ])
   }
 };
 </script>

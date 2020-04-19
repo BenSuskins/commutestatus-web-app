@@ -20,5 +20,15 @@ export default {
         }
       });
     });
+  },
+  putUser(request) {
+    const authservice = getInstance();
+    return authservice.getIdTokenClaims().then(claims => {
+      return apiClient.put("secure/user", request, {
+        headers: {
+          Authorization: "Bearer " + claims.__raw
+        }
+      });
+    });
   }
 };

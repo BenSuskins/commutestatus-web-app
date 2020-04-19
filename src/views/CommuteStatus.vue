@@ -45,6 +45,9 @@ export default {
     getUser() {
       this.$store.dispatch("fetchUser");
     },
+    getStations() {
+      this.$store.dispatch("fetchStations");
+    },
     getNumberOfHomeStatuses() {
       return this.$store.getters.getNumberOfHomeStatuses;
     },
@@ -66,6 +69,7 @@ export default {
   created() {
     this.getCommuteStatus();
     this.getUser();
+    this.getStations();
   },
   computed: {
     workStatuses() {

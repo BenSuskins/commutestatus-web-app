@@ -3,8 +3,15 @@
     <Nav />
     <div class="row">
       <div class="col">
-        <b-alert :show="this.hasUserErrored" variant="danger"
+        <b-alert :show="this.hasUserErrored || this.error" variant="danger"
           >{{ $t("settings.error") }}
+        </b-alert>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <b-alert :show="this.success" dismissible variant="success"
+          >{{ $t("settings.success") }}
         </b-alert>
       </div>
     </div>
@@ -130,12 +137,15 @@ export default {
         homeStation: null,
         workStation: null
       },
-      show: true
+      show: true,
+      success: false,
+      error: false,
+      dismissSecs: 5,
+      dismissCountDown: 0
     };
   },
   created() {
-    this.getUser();
-    this.getStations();
+    this.setDefaults();
   },
   methods: {
     logoutButtonAction() {
@@ -154,15 +164,17 @@ export default {
       const form = Object.assign({}, this.form);
       form.workStation = workStation;
       form.homeStation = homeStation;
-      UserService.putUser(form).then(() => {
-        alert("Succcess");
-      });
+      UserService.putUser(form)
+        .then(() => (this.success = true))
+        .catch(() => (this.error = true));
     },
     onReset(evt) {
       evt.preventDefault();
 
       // Reset our form values
       this.setDefaults();
+      this.success = false;
+      this.error = false;
 
       // Trick to reset/clear native browser form validation state
       this.show = false;
@@ -182,6 +194,9 @@ export default {
       this.$nextTick(() => {
         this.show = true;
       });
+    },
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
     },
     getUser() {
       this.$store.dispatch("fetchUser");

@@ -31,9 +31,9 @@ export const actions = {
     //Call commute status service
     CommuteStatusService.getStatuses()
       .then(response => {
-        commit("SET_STATUS", "");
         commit("SET_TO_WORK", response.data.toWork);
         commit("SET_TO_HOME", response.data.toHome);
+        commit("SET_STATUS", "");
       })
       .catch(error => {
         console.log(error);

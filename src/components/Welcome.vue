@@ -46,9 +46,7 @@ export default {
   props: {},
   methods: {
     loginButtonAction() {
-      this.$auth.loginWithRedirect({
-        redirect_uri: "http://localhost:3010/commutestatus"
-      });
+      this.$auth.loginWithRedirect();
     },
     signupButtonAction() {
       alert("I need to start this js");

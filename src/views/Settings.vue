@@ -18,13 +18,7 @@
     <div v-if="!this.hasUserErrored">
       <div class="row">
         <div class="col">
-          <h2
-            v-html="
-              $t('settings.header', {
-                user: firstName
-              })
-            "
-          ></h2>
+          <h2 v-html="$t('settings.header')"></h2>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -32,7 +26,7 @@
           <b-form @submit="onSubmit" @reset="onReset" v-if="show">
             <b-form-group
               id="input-group-1"
-              label="Email address:"
+              :label="$i18n.t('settings.email')"
               label-for="input-1"
             >
               <b-form-input
@@ -44,32 +38,8 @@
             </b-form-group>
 
             <b-form-group
-              id="input-group-2"
-              label="First Name:"
-              label-for="input-2"
-            >
-              <b-form-input
-                id="input-2"
-                v-model="form.firstName"
-                required
-              ></b-form-input>
-            </b-form-group>
-
-            <b-form-group
-              id="input-group-3"
-              label="Last Name:"
-              label-for="input-3"
-            >
-              <b-form-input
-                id="input-3"
-                v-model="form.lastName"
-                required
-              ></b-form-input>
-            </b-form-group>
-
-            <b-form-group
               id="input-group-4"
-              label="Home Station:"
+              :label="$i18n.t('settings.homeStation')"
               label-for="input-4"
             >
               <b-form-select
@@ -82,7 +52,7 @@
 
             <b-form-group
               id="input-group-5"
-              label="Work Station:"
+              :label="$i18n.t('settings.workStation')"
               label-for="input-5"
             >
               <b-form-select
@@ -132,8 +102,6 @@ export default {
     return {
       form: {
         email: "",
-        firstName: "",
-        lastName: "",
         homeStation: null,
         workStation: null
       },
@@ -185,8 +153,6 @@ export default {
     setDefaults() {
       // Reset our form values
       this.form.email = this.email;
-      this.form.firstName = this.firstName;
-      this.form.lastName = this.lastName;
       this.form.homeStation = this.homeStation;
       this.form.workStation = this.workStation;
       // Trick to reset/clear native browser form validation state
@@ -208,12 +174,6 @@ export default {
   computed: {
     hasUserErrored() {
       return this.$store.getters.hasUserErrored;
-    },
-    firstName() {
-      return this.user.user.firstName;
-    },
-    lastName() {
-      return this.user.user.lastName;
     },
     email() {
       return this.user.user.email;

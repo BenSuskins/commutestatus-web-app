@@ -20,7 +20,10 @@
     "logoutButton": "Log out",
     "updateButton": "Update Preferences",
     "resetButton": "Reset",
-    "header": "Hey %{user}!<br>Here you can update your preferences.",
+    "email": "Email Address:",
+    "homeStation": "Home Station:",
+    "workStation": "Work Station:",
+    "header": "Here you can update your preferences.",
     "error": "An error occurred while retrieving the user, please try again.",
     "success": "Your preferences have been updated successfully."
   }

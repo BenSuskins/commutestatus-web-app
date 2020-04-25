@@ -71,6 +71,11 @@ export default {
   },
   methods: {
     setEtdStyle() {
+      // Reset Style first
+      this.isOnTime = false;
+      this.isCancelled = false;
+      this.isDelayed = false;
+
       if (this.commuteStatus.estimatedTimeOfDeparture === "On time") {
         this.isOnTime = true;
       } else if (this.commuteStatus.isCancelled) {

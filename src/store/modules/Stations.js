@@ -20,7 +20,6 @@ export const mutations = {
 export const actions = {
   fetchStations({ commit }) {
     //Clear state
-    commit("SET_STATIONS", {});
     commit("SET_STATUS", "loading");
     commit("SET_ERROR", []);
 
@@ -33,6 +32,7 @@ export const actions = {
       .catch(error => {
         console.log(error);
         commit("SET_STATUS", "errored");
+        commit("SET_STATIONS", {});
         commit("SET_ERROR", error);
       });
   }

@@ -24,8 +24,6 @@ export const actions = {
   fetchCommuteStatuses({ commit }) {
     //Reset State
     commit("SET_STATUS", "loading");
-    commit("SET_TO_WORK", []);
-    commit("SET_TO_HOME", []);
     commit("SET_ERROR", []);
 
     //Call commute status service
@@ -38,6 +36,8 @@ export const actions = {
       .catch(error => {
         console.log(error);
         commit("SET_STATUS", "errored");
+        commit("SET_TO_WORK", []);
+        commit("SET_TO_HOME", []);
         commit("SET_ERROR", error);
       });
   }

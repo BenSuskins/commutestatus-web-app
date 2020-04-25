@@ -78,12 +78,14 @@ export default {
   },
   methods: {
     setEtdStyle() {
-      if (this.commuteStatus.estimatedTimeOfDeparture === "On time") {
-        this.isOnTime = true;
-        this.isDelayed = false;
-      } else {
-        this.isOnTime = false;
-        this.isDelayed = true;
+      if (this.commuteStatus) {
+        if (this.commuteStatus.estimatedTimeOfDeparture === "On time") {
+          this.isOnTime = true;
+          this.isDelayed = false;
+        } else {
+          this.isOnTime = false;
+          this.isDelayed = true;
+        }
       }
     }
   },

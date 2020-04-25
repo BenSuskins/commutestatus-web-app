@@ -48,12 +48,6 @@ export default {
     getStations() {
       this.$store.dispatch("fetchStations");
     },
-    getNumberOfHomeStatuses() {
-      return this.$store.getters.getNumberOfHomeStatuses;
-    },
-    getNumberOfWorkStatuses() {
-      return this.$store.getters.getNumberOfWorkStatuses;
-    },
     onClickAction() {
       this.homeIndex++;
       if (this.homeIndex >= this.getNumberOfHomeStatuses) {
@@ -82,11 +76,7 @@ export default {
       return this.$store.getters.hasCommuteStatusErrored;
     },
     ...mapState(["user"]),
-    ...mapGetters([
-      "getNumberOfWorkStatuses",
-      "getNumberOfHomeStatuses"
-      // ...
-    ])
+    ...mapGetters(["getNumberOfWorkStatuses", "getNumberOfHomeStatuses"])
   }
 };
 </script>

@@ -25,10 +25,17 @@
           >
             {{ estimatedTimeOfDeparture }}
           </h2>
-          <h2>
+          <h2 v-if="!this.isCancelled">
             {{
               $t("status.platform", {
                 platform: platform
+              })
+            }}
+          </h2>
+          <h2 v-if="this.isCancelled">
+            {{
+              $t("status.cancelReason", {
+                cancelReason: cancelReason
               })
             }}
           </h2>
@@ -71,16 +78,11 @@ export default {
   },
   methods: {
     setEtdStyle() {
-      // Reset Style first
-      this.isOnTime = false;
-      this.isCancelled = false;
-      this.isDelayed = false;
-
       if (this.commuteStatus.estimatedTimeOfDeparture === "On time") {
         this.isOnTime = true;
-      } else if (this.commuteStatus.isCancelled) {
-        this.isCancelled = true;
+        this.isDelayed = false;
       } else {
+        this.isOnTime = false;
         this.isDelayed = true;
       }
     }
@@ -107,6 +109,9 @@ export default {
     },
     scheduledTimeOfDeparture() {
       return this.commuteStatus.scheduledTimeOfDeparture;
+    },
+    cancelReason() {
+      return this.commuteStatus.cancelReason;
     }
   },
   components: {}

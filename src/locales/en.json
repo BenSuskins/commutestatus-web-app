@@ -10,6 +10,7 @@
     "nextButton": "Next",
     "none": "No trains to %{station}",
     "unknown": "Unknown",
+    "cancelReason": "%{cancelReason}",
     "error": "An error occurred while retrieving the Commute Status, please try again."
   },
   "nav": {

@@ -6,52 +6,54 @@
       </div>
     </div>
     <div v-if="!isLoading && this.commuteStatus">
-      <div class="row mb-5">
-        <div class="col">
-          <h1>
-            {{
-              $t("status.to", {
-                std: scheduledTimeOfDeparture,
-                station: to
-              })
-            }}
-          </h1>
-          <h2
-            v-bind:class="{
-              cancelled: isCancelled,
-              'on-time': isOnTime,
-              delayed: isDelayed
-            }"
-          >
-            {{ estimatedTimeOfDeparture }}
-          </h2>
-          <h2 v-if="!this.isCancelled">
-            {{
-              $t("status.platform", {
-                platform: platform
-              })
-            }}
-          </h2>
-          <h2 v-if="this.isCancelled">
-            {{
-              $t("status.cancelReason", {
-                cancelReason: cancelReason
-              })
-            }}
-          </h2>
+      <div v-if="!this.noTrains">
+        <div class="row mb-5">
+          <div class="col">
+            <h1>
+              {{
+                $t("status.to", {
+                  std: scheduledTimeOfDeparture,
+                  station: to
+                })
+              }}
+            </h1>
+            <h2
+              v-bind:class="{
+                cancelled: isCancelled,
+                'on-time': isOnTime,
+                delayed: isDelayed
+              }"
+            >
+              {{ estimatedTimeOfDeparture }}
+            </h2>
+            <h2 v-if="!this.isCancelled">
+              {{
+                $t("status.platform", {
+                  platform: platform
+                })
+              }}
+            </h2>
+            <h2 v-if="this.isCancelled">
+              {{
+                $t("status.cancelReason", {
+                  cancelReason: cancelReason
+                })
+              }}
+            </h2>
+          </div>
         </div>
       </div>
-    </div>
-    <div v-if="!isLoading && !this.commuteStatus">
-      <div class="row mb-5">
-        <div class="col">
-          <h1>
-            {{
-              $t("status.none", {
-                station: to
-              })
-            }}
-          </h1>
+      <div v-if="this.noTrains">
+        <div class="row mb-5">
+          <div class="col">
+            <h1>
+              {{
+                $t("status.none", {
+                  station: to
+                })
+              }}
+            </h1>
+          </div>
         </div>
       </div>
     </div>
@@ -114,6 +116,13 @@ export default {
     },
     cancelReason() {
       return this.commuteStatus.cancelReason;
+    },
+    noTrains() {
+      if (this.commuteStatus) {
+        return false;
+      } else {
+        return true;
+      }
     }
   },
   components: {}

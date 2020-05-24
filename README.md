@@ -14,16 +14,16 @@
 <br />
 <p align="center">
   <a>
-    <img src="https://avatars1.githubusercontent.com/u/5471266?s=460&u=ffdc6bb815f378181362597f63a5af932df168ea&v=4" alt="Logo" width="80" height="80">
+    <img src="https://clipartix.com/wp-content/uploads/2016/04/Train-clipart-for-kids-free-free-clipart-images.gif" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Commute Status Web App</h3>
 
   <p align="center">
-    todo Description
+    Commute Status a simple Web and Android app to quickly see the status of your commute.
     <br />
     <br />
-    <a href="https://commutestatus.suskins.co.uk">View Demo</a>
+    <a href="https://commutestatus.suskins.co.uk">Check it out!</a>
     ·
     <a href="https://github.com/BenSuskins/commutestatus-web-app/issues">Report Bug</a>
     ·
@@ -41,20 +41,17 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
-
-
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![Commute Status Screenshot](docs/commuteStatus.png)
 
-Here's a blank template to get started:
+Commute Status is a simple Web and Android app to quickly and easily see the status of your commute.
+
 
 
 ### Built With
@@ -66,6 +63,9 @@ Here's a blank template to get started:
 
 <!-- GETTING STARTED -->
 ## Getting Started
+Create an Auth0 account and configure the [auth_config.json](auth_config.json).
+
+To run the backend check out: [Commute Status API](https://github.com/BenSuskins/commutestatus-api).
 
 ### Project setup
 ```
@@ -86,13 +86,6 @@ npm run build
 ```
 npm run lint
 ```
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/BenSuskins/commutestatus-web-app/issues) for a list of proposed features (and known issues).
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -119,17 +112,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Ben Suskins - [@BenSuskins](https://twitter.com/BenSuskins) - suskinsdevelopment@gmail.com
 
-Project Link: [https://github.com/BenSuskins/commutestatus-web-app](https://github.com/BenSuskins/commutestatus-web-app)
-
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-
-* []()
-* []()
-* []()
-
+Project Link: [Commute Status Web App](https://github.com/BenSuskins/commutestatus-web-app)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

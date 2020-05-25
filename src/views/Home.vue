@@ -2,7 +2,7 @@
   <div class="home container">
     <!-- If not authenticated show log in / sign up-->
     <div v-if="!$auth.isAuthenticated">
-      <div id="welcome">
+      <div class="welcome">
         <div class="row">
           <div class="col">
             <h1>{{ $t("welcome.welcomeMessage") }}</h1>
@@ -62,13 +62,13 @@ export default {
       this.$auth.loginWithRedirect();
     },
     signupButtonAction() {
-      alert("I need to start this js");
+      this.$router.push("signup");
     }
   }
 };
 </script>
 <style scoped lang="scss">
-#welcome {
+.welcome {
   padding: 30px;
-}</style
->e
+}
+</style>

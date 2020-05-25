@@ -30,5 +30,8 @@ export default {
         }
       });
     });
+  },
+  postUser(request) {
+    return apiClient.post("public/user", request, {});
   }
 };

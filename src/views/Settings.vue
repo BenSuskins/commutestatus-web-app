@@ -123,6 +123,9 @@ export default {
     },
     onSubmit(evt) {
       evt.preventDefault();
+
+      this.error = false;
+
       const homeStation = this.stations.stations.find(station => {
         return station.name === this.form.homeStation;
       }).id;

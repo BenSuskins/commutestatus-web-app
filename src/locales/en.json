@@ -4,6 +4,20 @@
     "signupButton": "Sign up",
     "welcomeMessage": "Welcome to Commute Status!"
   },
+  "signUp": {
+    "createButton": "Create Account",
+    "resetButton": "Reset",
+    "email": "Email Address:",
+    "password": "Password:",
+    "confirmPassword": "Confirm Password:",
+    "homeStation": "Home Station:",
+    "workStation": "Work Station:",
+    "header": "Here you can create your account.",
+    "error": "An error occurred while creating your account, please try again.",
+    "passwordError": "The passwords you entered do not match, please try again.",
+    "success": "Your account has been created succesfully.",
+    "back": "Back"
+  },
   "status": {
     "to": "%{std} to %{station}",
     "platform": "Platform %{platform}",

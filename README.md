@@ -52,6 +52,7 @@
 
 Commute Status is a simple Web and Android app to quickly and easily see the status of your commute.
 
+Check out the [Android App](https://github.com/BenSuskins/commutestatus-android-app).
 
 
 ### Built With

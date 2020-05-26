@@ -63,12 +63,16 @@
               ></b-form-select>
             </b-form-group>
 
-            <b-button type="submit" variant="outline-primary"
-              >{{ $t("settings.updateButton") }}
-            </b-button>
-            <b-button type="reset" variant="outline-danger"
-              >{{ $t("settings.resetButton") }}
-            </b-button>
+            <CommuteStatusButton
+              :on-click="onSubmit"
+              :button-style="'outline-primary'"
+              :button-text="$t('settings.updateButton')"
+            />
+            <CommuteStatusButton
+              :on-click="onReset"
+              :button-style="'outline-danger'"
+              :button-text="$t('settings.resetButton')"
+            />
           </b-form>
         </div>
       </div>
@@ -107,9 +111,7 @@ export default {
       },
       show: true,
       success: false,
-      error: false,
-      dismissSecs: 5,
-      dismissCountDown: 0
+      error: false
     };
   },
   created() {
@@ -121,9 +123,7 @@ export default {
         returnTo: window.location.origin
       });
     },
-    onSubmit(evt) {
-      evt.preventDefault();
-
+    onSubmit() {
       this.error = false;
 
       const homeStation = this.stations.stations.find(station => {
@@ -139,9 +139,7 @@ export default {
         .then(() => (this.success = true))
         .catch(() => (this.error = true));
     },
-    onReset(evt) {
-      evt.preventDefault();
-
+    onReset() {
       // Reset our form values
       this.setDefaults();
       this.success = false;
@@ -163,9 +161,6 @@ export default {
       this.$nextTick(() => {
         this.show = true;
       });
-    },
-    countDownChanged(dismissCountDown) {
-      this.dismissCountDown = dismissCountDown;
     },
     getUser() {
       this.$store.dispatch("fetchUser");

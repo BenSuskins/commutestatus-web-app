@@ -9,13 +9,14 @@
     "resetButton": "Reset",
     "email": "Email Address:",
     "password": "Password:",
-    "confirmPassword": "Confirm Password:",
+    "passwordHint": "At least 8 characters, one uppercase, one lowercase, one number and one special character",
     "homeStation": "Home Station:",
     "workStation": "Work Station:",
     "header": "Here you can create your account.",
-    "error": "An error occurred while creating your account, please try again.",
-    "passwordError": "The passwords you entered do not match, please try again.",
-    "success": "Your account has been created succesfully.",
+    "error": "An error occurred, please try again.",
+    "tosMessage": "By creating an account you agree to the",
+    "tos": "Terms of Service.",
+    "success": "Your account has been created succesfully, please check your inbox to verify your email address.",
     "back": "Back"
   },
   "status": {
@@ -39,7 +40,7 @@
     "homeStation": "Home Station:",
     "workStation": "Work Station:",
     "header": "Here you can update your preferences.",
-    "error": "An error occurred while retrieving the user, please try again.",
+    "error": "An error occurred while retrieving your preferences, please try again.",
     "success": "Your preferences have been updated successfully."
   }
 }

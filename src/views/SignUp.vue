@@ -60,6 +60,8 @@
                 v-model="form.homeStation"
                 :options="stationDropDowns"
                 required
+                v-b-tooltip.hover.right
+                :title="$i18n.t('signUp.homeStationToolTip')"
               ></b-form-select>
             </b-form-group>
 
@@ -73,6 +75,8 @@
                 v-model="form.workStation"
                 :options="stationDropDowns"
                 required
+                v-b-tooltip.hover.right
+                :title="$i18n.t('signUp.workStationToolTip')"
               ></b-form-select>
             </b-form-group>
             <p>
